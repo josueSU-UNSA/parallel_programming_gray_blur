@@ -133,5 +133,7 @@ int main()
     cv::imshow("Blurred Image", outputImage);
     cv::waitKey(0);
 
+    grayScale()
+
     return 0;
 }
