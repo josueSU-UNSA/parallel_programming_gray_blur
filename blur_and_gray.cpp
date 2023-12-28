@@ -11,6 +11,8 @@
 #define CHANNELS 3
 #define BLUR_SIZE 3
 using namespace cv;
+namespace fs = std::filesystem;
+
 __global__
 void blurKernel(unsigned char* in, unsigned char* out, int w, int h) {
     int Col = blockIdx.x * blockDim.x + threadIdx.x;
