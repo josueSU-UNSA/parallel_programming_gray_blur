@@ -58,8 +58,15 @@ void colorToGreyscaleConversion(unsigned char* Pout, unsigned char* Pin, int wid
 }
 void grayScale()
 {
-    cv::Mat img = cv::imread("D:/fmatt/Pictures/Wallpapers/LenovoWallPaper.jpg");
     
+    fs::path currentPath = fs::current_path();
+    std::string filename= "dog_img.jpg";
+    // std::string filename= "person.jpg";
+    // std::string filename= "tiger.jpg";
+    fs::path imagePath = currentPath / filename;
+    std::string imagePathStr = imagePath.string();
+
+    cv::Mat img = cv::imread(imagePathStr);
     int width = img.cols,height = img.rows;
 
     // Allocate memory for input and output images on the GPU
