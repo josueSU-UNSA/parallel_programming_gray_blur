@@ -11,8 +11,6 @@
 #define CHANNELS 3
 #define BLUR_SIZE 3
 using namespace cv;
-namespace fs = std::filesystem;
-
 __global__
 void blurKernel(unsigned char* in, unsigned char* out, int w, int h) {
     int Col = blockIdx.x * blockDim.x + threadIdx.x;
@@ -61,12 +59,11 @@ void colorToGreyscaleConversion(unsigned char* Pout, unsigned char* Pin, int wid
 void grayScale()
 {
     
-    fs::path currentPath = fs::current_path();
+    std::string pathName="D:\\fmatt\\Documents\\University\\UNSA\\Semestre VIII\\Parelallel and Distributed Computing\\Laboratory\\Laboratory 06\\Laboratory 06\\";
     std::string filename= "dog_img.jpg";
     // std::string filename= "person.jpg";
     // std::string filename= "tiger.jpg";
-    fs::path imagePath = currentPath / filename;
-    std::string imagePathStr = imagePath.string();
+    std::string imagePathStr = pathName+filename;
 
     cv::Mat img = cv::imread(imagePathStr);
     int width = img.cols,height = img.rows;
@@ -105,12 +102,11 @@ void grayScale()
 }
 int main()
 {
-    fs::path currentPath = fs::current_path();
+    std::string pathName="D:\\fmatt\\Documents\\University\\UNSA\\Semestre VIII\\Parelallel and Distributed Computing\\Laboratory\\Laboratory 06\\Laboratory 06\\";
     std::string filename= "dog_img.jpg";
     // std::string filename= "person.jpg";
     // std::string filename= "tiger.jpg";
-    fs::path imagePath = currentPath / filename;
-    std::string imagePathStr = imagePath.string();
+    std::string imagePathStr = pathName+filename;
 
     cv::Mat img = cv::imread(imagePathStr);
     int width = img.cols;
