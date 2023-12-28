@@ -102,6 +102,8 @@ void grayScale()
 }
 int main()
 {
+    grayScale()
+
     std::string pathName="D:\\fmatt\\Documents\\University\\UNSA\\Semestre VIII\\Parelallel and Distributed Computing\\Laboratory\\Laboratory 06\\Laboratory 06\\";
     std::string filename= "dog_img.jpg";
     // std::string filename= "person.jpg";
@@ -133,7 +135,6 @@ int main()
     cv::imshow("Blurred Image", outputImage);
     cv::waitKey(0);
 
-    grayScale()
 
     return 0;
 }
